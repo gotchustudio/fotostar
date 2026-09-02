@@ -166,8 +166,14 @@ header.scrolled .nav-toggle span{background:var(--charcoal);}
 .hero-ctas{display:flex; gap:16px; margin-top:38px; flex-wrap:wrap;}
 .btn{
   padding:15px 30px; border-radius:999px; font-size:14px; font-weight:600;
-  transition:all .35s var(--ease); display:inline-flex; align-items:center; gap:8px;
+  transition:all .35s var(--ease); display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  white-space:nowrap;
 }
+.btn-icon{
+  width:18px; height:18px; display:inline-flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.btn-icon svg{width:100%; height:100%; display:block;}
 .btn-solid{background:var(--terracotta); color:var(--ivory);}
 .btn-solid:hover{background:var(--ivory); color:var(--charcoal);}
 .btn-outline{border:1px solid var(--ivory-70); color:var(--ivory);}
@@ -375,10 +381,15 @@ footer{background:var(--charcoal); color:var(--ivory); padding:80px 0 30px;}
   background:var(--ivory); border-top:1px solid var(--gray); padding:12px 6vw;
   gap:10px;
 }
-@media(max-width:760px){.sticky-cta{display:flex;}}
-.sticky-cta a{flex:1; text-align:center; padding:13px; border-radius:999px; font-size:13.5px; font-weight:600;}
-.sticky-cta .call{border:1px solid var(--charcoal);}
+@media(max-width:760px){.sticky-cta{display:grid; grid-template-columns:1fr 1fr;}}
+.sticky-cta a{
+  display:flex; align-items:center; justify-content:center; gap:8px; min-width:0;
+  width:100%; text-align:center; padding:13px 10px; border-radius:999px; font-size:13.5px; font-weight:600;
+  white-space:nowrap;
+}
+.sticky-cta .call{border:1px solid var(--charcoal); color:var(--charcoal);}
 .sticky-cta .wa{background:#25D366; color:#fff;}
+.sticky-cta .wa svg, .sticky-cta .call svg{width:16px; height:16px; flex-shrink:0;}
 
 /* frame corner decorations */
 .corner-frame{position:absolute; width:26px; height:26px; pointer-events:none; opacity:.6;}
@@ -632,7 +643,12 @@ header.scrolled{background:transparent; border-bottom:none; padding:16px 0;}
       <li><a href="#studio">Studio</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="#booking" class="nav-cta magnetic" data-cursor="open" id="navBookBtn">Book a Shoot</a>
+    <a href="#booking" class="nav-cta magnetic" data-cursor="open" id="navBookBtn">
+      <span class="btn-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 7.5A2.5 2.5 0 0 1 8.5 5h7A2.5 2.5 0 0 1 18 7.5v9A2.5 2.5 0 0 1 15.5 19h-7A2.5 2.5 0 0 1 6 16.5v-9Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 5V3.8A1.8 1.8 0 0 1 10.8 2h2.4A1.8 1.8 0 0 1 15 3.8V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.6"/></svg>
+      </span>
+      <span>Book a Shoot</span>
+    </a>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -642,6 +658,9 @@ header.scrolled{background:transparent; border-bottom:none; padding:16px 0;}
 
 <!-- Floating glass booking CTA (desktop) -->
 <a href="#" class="float-cta magnetic" id="floatCta" data-cursor="open">
+  <span class="btn-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 7.5A2.5 2.5 0 0 1 8.5 5h7A2.5 2.5 0 0 1 18 7.5v9A2.5 2.5 0 0 1 15.5 19h-7A2.5 2.5 0 0 1 6 16.5v-9Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 5V3.8A1.8 1.8 0 0 1 10.8 2h2.4A1.8 1.8 0 0 1 15 3.8V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.6"/></svg>
+  </span>
   <span>Book a Shoot</span><span class="arrow">↗</span>
 </a>
 
@@ -672,7 +691,12 @@ header.scrolled{background:transparent; border-bottom:none; padding:16px 0;}
     <p class="hero-sub">Photography, videography and creative imaging for life's moments, milestones and memories.</p>
     <div class="hero-ctas">
       <a href="#portfolio" class="btn btn-solid magnetic" data-cursor="open">View Our Work</a>
-      <a href="#booking" class="btn btn-outline magnetic" data-cursor="open">Book a Shoot</a>
+      <a href="#booking" class="btn btn-outline magnetic" data-cursor="open">
+        <span class="btn-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 7.5A2.5 2.5 0 0 1 8.5 5h7A2.5 2.5 0 0 1 18 7.5v9A2.5 2.5 0 0 1 15.5 19h-7A2.5 2.5 0 0 1 6 16.5v-9Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 5V3.8A1.8 1.8 0 0 1 10.8 2h2.4A1.8 1.8 0 0 1 15 3.8V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.6"/></svg>
+        </span>
+        <span>Book a Shoot</span>
+      </a>
     </div>
   </div>
   <div class="scroll-cue"><span>SCROLL</span><span class="line"></span></div>
@@ -1041,8 +1065,14 @@ header.scrolled{background:transparent; border-bottom:none; padding:16px 0;}
 </footer>
 
 <div class="sticky-cta">
-  <a href="tel:+97715520000" class="call">Call</a>
-  <a href="#" id="waCta3" target="_blank" class="wa">WhatsApp</a>
+  <a href="tel:+97715520000" class="call">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.6 4.2a1.8 1.8 0 0 1 1.7 1.1l.8 2.1a1.8 1.8 0 0 1-.5 1.9l-1 .9a13.7 13.7 0 0 0 7.5 7.5l.9-1a1.8 1.8 0 0 1 1.9-.5l2.1.8a1.8 1.8 0 0 1 1.1 1.7v2.1A1.8 1.8 0 0 1 19.4 20c-8.9 0-16.2-7.3-16.2-16.2A1.8 1.8 0 0 1 5 2h2.1Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Call</span>
+  </a>
+  <a href="#" id="waCta3" target="_blank" class="wa">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 11.8A8.2 8.2 0 0 1 8.3 20L4 20l1.1-4.3A8.2 8.2 0 1 1 20 11.8Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.8 8.6c.2-.4.4-.4.6-.4.1 0 .3 0 .4.1.1.1.4.4.4.9s-.4 1-.7 1.3c-.2.2-.3.4-.2.7.1.3.8 1.5 1.9 2.5 1.2 1.1 2.2 1.3 2.5 1.4.3.1.5 0 .7-.1.3-.2.8-.8 1-.9.2-.1.4-.1.7 0l.6.3c.3.2.4.4.4.7 0 .3-.2 1-.8 1.5-.7.6-1.3.9-2.3.9-1.6 0-3.2-.8-4.6-2.1A12.7 12.7 0 0 1 9 13c-.5-.8-.8-1.7-.8-2.7 0-.5.2-1 .7-1.4l.1-.1Z" fill="currentColor"/></svg>
+    <span>WhatsApp</span>
+  </a>
 </div>
 
 <!-- GLASS BOOKING MODAL -->
